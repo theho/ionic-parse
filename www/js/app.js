@@ -14,6 +14,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
   });
+  Parse.initialize("<APP KEY>", "<JAVASCRIPT KEY>");
+
+  /* load FB sdk */
+  window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({
+          appId      : '<FB APP ID>',
+          status     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
